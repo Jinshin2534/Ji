@@ -1,46 +1,39 @@
 @media screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
-    line-height: 2;
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .scroll-container {
-    flex-direction: column;
+    flex-direction: column !important;
     overflow-x: hidden;
     overflow-y: auto;
     height: auto;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: none;
     scroll-behavior: smooth;
-    will-change: transform;
   }
 
   .content {
     writing-mode: horizontal-tb !important;
     min-width: 100vw;
+    width: 100%;
     height: auto;
     padding: 40px 20px;
     border-right: none;
     border-bottom: 1px solid rgba(255, 94, 58, 0.3);
+    box-sizing: border-box;
+    white-space: normal !important;
+    overflow-wrap: break-word;
   }
 
-  h1 {
-    font-size: 2em;
-    text-shadow: none;
-  }
-
-  h2 {
-    font-size: 1.3em;
-    padding-right: 10px;
-  }
-
-  p, li {
-    font-size: 1em;
-    margin-bottom: 1em;
+  h1, h2, p, li {
+    word-break: break-word;
+    white-space: normal;
   }
 
   .goal-image img {
-    max-height: 40vh;
-    width: auto;
+    max-width: 100%;
     height: auto;
   }
 
