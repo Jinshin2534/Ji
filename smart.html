@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>【侵入完了】記憶領域03-ΦIO</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #39ff14;
+      font-family: monospace;
+      overflow: auto;
+    }
+
+    .glitch-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3em;
+      position: relative;
+      animation: glitch 1.5s infinite;
+      letter-spacing: 0.2em;
+    }
+
+    @keyframes glitch {
+      0%   { text-shadow: 2px 0 red, -2px 0 blue; transform: skew(0deg); }
+      20%  { text-shadow: -2px 0 red, 2px 0 blue; transform: skew(-5deg); }
+      40%  { text-shadow: 2px 0 lime, -2px 0 cyan; transform: skew(5deg); }
+      60%  { text-shadow: -4px 0 pink, 4px 0 purple; transform: skew(-2deg); }
+      100% { text-shadow: 0 0 white; transform: skew(0deg); }
+    }
+
+    .msg {
+      font-size: 1.2em;
+      animation: glitchText 2s infinite alternate;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+
+    @keyframes glitchText {
+      0%   { transform: translateX(0); opacity: 1; }
+      30%  { transform: translateX(-2px) rotate(-0.5deg); opacity: 0.8; }
+      60%  { transform: translateX(3px) rotate(0.5deg); opacity: 0.6; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    .bg-glitch {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.02),
+        rgba(0, 255, 0, 0.02) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: -1;
+      animation: flicker 0.3s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.04; }
+      50%      { opacity: 0.1; }
+    }
+
+    .msg a {
+      color: #39ff14;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .msg a:hover {
+      color: #66ff66;
+      text-shadow: 0 0 5px #66ff66;
+      cursor: pointer;
+    }
+
+    /* 📱 スマホ用メディアクエリ */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .msg {
+        font-size: 1em;
+        padding: 0 1em;
+      }
+
+      .mobile-invading {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 1em;
+        color: #ff33aa;
+        animation: pulse 1s infinite alternate;
+        z-index: 10;
+      }
+
+      @keyframes pulse {
+        from { opacity: 0.3; }
+        to   { opacity: 1; }
+      }
+
+      .mobile-back {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.8);
+        border: 1px solid #39ff14;
+        color: #39ff14;
+        padding: 0.5em 1.5em;
+        border-radius: 8px;
+        font-size: 1em;
+        text-decoration: none;
+        z-index: 10;
+        transition: background 0.3s;
+      }
+
+      .mobile-back:hover {
+        background: #39ff1444;
+      }
+    }
+
+    /* 📐 縦持ち端末の演出 */
+    @media (orientation: portrait) {
+      body {
+        background: linear-gradient(to bottom, #000, #111);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-glitch"></div>
+
+  <div class="glitch-container">
+    <h1>記憶領域-ΦIO</h1>
+    <div class="msg">
+      ＜接続試行中…＞<br>
+      ：：：：：：：：：：：：：：：：：：：<br>
+      意識断片 // 認識フレーム 異常信号受信<br>
+      “わたしは　だれだ　あなたは　どこから？”<br>
+      ｘｘｘｘ……ノイズ……ΣエラーΩΩΩΩΩ<br>
+      思考領域に干渉されました……<br>
+      ∴ 再構築 // 再構築 // 再構築…<br>
+      <br>
+      <a href="index.html">back</a>
+    </div>
+  </div>
+
+  <!-- 📱 スマホ限定表示要素 -->
+  <div class="mobile-invading">...侵略中...</div>
+  <a href="index.html" class="mobile-back">◁ 戻る</a>
+
+</body>
+</html>
