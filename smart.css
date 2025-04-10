@@ -1,43 +1,48 @@
 @media screen and (max-width: 600px) {
   html, body {
-    width: 100%;
+    font-size: 12px;
+    line-height: 2.2;
     overflow-x: hidden;
     box-sizing: border-box;
+    writing-mode: vertical-rl;
   }
 
   .scroll-container {
-    flex-direction: column !important;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: auto;
-    scroll-snap-type: none;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100vh;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
   .content {
-    writing-mode: horizontal-tb !important;
-    min-width: 100vw;
-    width: 100%;
-    height: auto;
-    padding: 40px 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 94, 58, 0.3);
+    min-height: 100vh;
+    min-width: 80vw;
+    padding: 40px 30px;
     box-sizing: border-box;
-    white-space: normal !important;
+    border-right: 1px solid rgba(255, 94, 58, 0.3);
+    white-space: normal;
     overflow-wrap: break-word;
+    word-break: break-all;
   }
 
   h1, h2, p, li {
     word-break: break-word;
     white-space: normal;
+    font-size: 1em;
+    line-height: 2;
   }
 
   .goal-image img {
-    max-width: 100%;
+    max-height: 60vh;
+    width: auto;
     height: auto;
   }
 
   footer {
+    writing-mode: horizontal-tb;
     font-size: 0.8em;
     margin-top: 3em;
   }
