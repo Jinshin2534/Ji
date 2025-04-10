@@ -1,0 +1,43 @@
+@media screen and (max-width: 600px) {
+    body {
+      font-size: 14px;
+      line-height: 2;
+    }
+  
+    .content {
+      min-width: 100vw;
+      padding: 60px 20px;
+    }
+  
+    h1 {
+      font-size: 2em;
+      text-shadow: none;
+    }
+  
+    h2 {
+      font-size: 1.3em;
+      padding-right: 10px;
+    }
+  
+    p, li {
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+  
+    .goal-image img {
+      max-height: 40vh;
+      width: auto;
+      height: auto;
+    }
+  
+    .scroll-container {
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+  
+    footer {
+      font-size: 0.8em;
+      margin-top: 3em;
+    }
+  }
+  
